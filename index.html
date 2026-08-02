@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Hikrydex</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-family:Arial, sans-serif;
+    color:white;
+    overflow-x:hidden;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(139,92,246,0.2), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(168,85,247,0.2), transparent 40%),
+        linear-gradient(135deg,#0f172a,#020617);
+}
+
+.header{
+    text-align:center;
+    margin-top:60px;
+    animation:fadeDown 1.2s ease;
+}
+
+.header h1{
+    font-size:42px;
+    letter-spacing:6px;
+    margin-bottom:10px;
+}
+
+.line{
+    width:420px;
+    height:3px;
+    background:linear-gradient(90deg,#7c3aed,#a855f7);
+    margin:15px auto;
+    border-radius:5px;
+    box-shadow:0 0 15px #7c3aed;
+}
+
+.description{
+    max-width:700px;
+    color:#cbd5f5;
+    font-size:16px;
+    line-height:1.6;
+}
+
+.container{
+    text-align:center;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.08);
+    padding:50px 70px;
+    border-radius:18px;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.6),
+        inset 0 0 30px rgba(255,255,255,0.05);
+    animation:fadeUp 1.3s ease;
+    margin-top: 80px; 
+}
+
+.products{
+    display:flex;
+    gap:40px;
+    margin-top:60px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.card{
+    width:300px;
+    padding:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.6),
+        inset 0 0 20px rgba(255,255,255,0.05);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 40px rgba(139,92,246,0.4);
+}
+
+.card h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:20px;
+    margin-bottom:20px;
+    color:#a78bfa;
+}
+
+.card ul{
+    list-style:none;
+    padding:0;
+    margin-bottom:20px;
+}
+
+.buy-btn{
+    display:block;
+    text-align:center;
+    padding:14px;
+    border-radius:10px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
+    font-weight:bold;
+    transition:0.25s;
+}
+
+.buy-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 20px #7c3aed;
+}
+
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+.modal-content{
+    background:#020617;
+    padding:30px;
+    border-radius:14px;
+    text-align:center;
+    width:300px;
+}
+
+.modal button{
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#7c3aed;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.modal button:hover{
+    background:#9333ea;
+}
+
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(50px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>HIKRYDEX</h1>
+    <div class="line"></div>
+    <div class="description">
+        Это уникальное дополнение (DLC) для Rustex Remake, которое сочетает в себе визуальные элементы и полезные утилиты для улучшения игрового процесса.
+    </div>
+</div>
+
+<div class="container">
+
+<div class="products">
+
+    <div class="card">
+        <h3>NORECOIL</h3>
+        <div class="price">от 450 руб</div>
+        <ul>
+            <li>✔ Андетект</li>
+            <li>✔ Низкая цена</li>
+        </ul>
+        <a href="#" class="buy-btn" onclick="openProduct('norecoil')">Приобрести</a>
+    </div>
+
+    <div class="card">
+        <h3>EXOVISION</h3>
+        <div class="price">от 400 руб</div>
+        <ul>
+            <li>✔ Андетект</li>
+			<li>✔ External</li>
+            <li>✔ Низкая цена</li>
+        </ul>
+        <a href="#" class="buy-btn" onclick="openProduct('exovision')">Приобрести</a>
+    </div>
+	
+	<div class="card">
+        <h3>HIKRYDEX EXTERNAL</h3>
+        <div class="price">от 700 руб</div>
+        <ul>
+            <li>✔ Андетект</li>
+			<li>✔ External</li>
+            <li>✔ Низкая цена</li>
+        </ul>
+        <a href="#" class="buy-btn" onclick="openProduct('external')">Приобрести</a>
+    </div>
+
+</div>
+
+</div>
+
+
+<div id="modalDays" class="modal">
+    <div class="modal-content">
+        <h3>Выберите срок</h3>
+        <div id="daysOptions"></div>
+    </div>
+</div>
+
+
+<div id="modalPay" class="modal">
+    <div class="modal-content">
+        <h3>Способ оплаты</h3>
+        <button onclick="payFunPay()">FunPay</button>
+        <button onclick="payCard()">RU/UA/EU Cards</button>
+    </div>
+</div>
+
+<script>
+
+let selectedProduct = "";
+let selectedDay = "";
+
+const products = {
+    norecoil: {
+        "3DAY": {price:450, link:"https://funpay.com/lots/offer?id=74218861"},
+        "7DAY": {price:900, link:"https://funpay.com/lots/offer?id=74218918"}
+    },
+    exovision: {
+        "1DAY": {price:400, link:"https://funpay.com/lots/offer?id=67990592"},
+        "7DAY": {price:800, link:"https://funpay.com/lots/offer?id=66650193"}
+    },
+    external: {
+        "3DAY": {price:700, link:"https://funpay.com/lots/offer?id=74219137"},
+        "7DAY": {price:1250, link:"https://funpay.com/lots/offer?id=74219301"}
+    }
+};
+
+function openProduct(product){
+    selectedProduct = product;
+
+    const container = document.getElementById("daysOptions");
+    container.innerHTML = "";
+
+    for(let day in products[product]){
+        let btn = document.createElement("button");
+        btn.innerText = `${day} - ${products[product][day].price} руб`;
+        btn.onclick = () => selectDay(day);
+        container.appendChild(btn);
+    }
+
+    document.getElementById("modalDays").style.display = "flex";
+}
+
+function selectDay(day){
+    selectedDay = day;
+    document.getElementById("modalDays").style.display = "none";
+    document.getElementById("modalPay").style.display = "flex";
+}
+
+function payFunPay(){
+    let link = products[selectedProduct][selectedDay].link;
+    if(link !== "#"){
+        window.open(link, "_blank");
+    } else {
+        alert("Ссылка пока не добавлена");
+    }
+}
+
+function payCard(){
+    window.open("https://t.me/curoze", "_blank");
+}
+
+window.onclick = function(e){
+    if(e.target.classList.contains("modal")){
+        e.target.style.display = "none";
+    }
+}
+
+</script>
+
+</body>
+</html>
