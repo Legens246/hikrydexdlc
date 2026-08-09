@@ -231,7 +231,7 @@ body{
         Доступны <span class="highlight">два продукта</span> на выбор: <strong>NORECOIL</strong> и <strong>HIKRYDEX EXTERNAL</strong>.
         <br><br>
         ⚠️ <strong>Важно!</strong> Приобретение осуществляется <span class="highlight">исключительно через наш сайт</span> — никаких посредников и сторонних лиц.  
-        Оплата принимается через <strong>FunPay</strong>, <strong>СБП</strong> или напрямую через <strong>Telegram</strong> разработчика.
+        Оплата принимается через <strong>FunPay</strong>, <strong>Discord</strong> или напрямую через <strong>Telegram</strong> разработчика.
     </div>
 </div>
 
@@ -286,7 +286,8 @@ body{
     <div class="modal-content">
         <h3>Способ оплаты</h3>
         <button onclick="payFunPay()">FunPay</button>
-        <button onclick="payCard()">СБП / Карты</button>
+        <button onclick="payCardRU()">Ru Cards</button>
+        <button onclick="payCardEU()">EU Cards</button>
     </div>
 </div>
 
@@ -337,9 +338,12 @@ function payFunPay(){
     }
 }
 
-function payCard(){
-    window.open("https://t.me/hikrydexdlc", "_blank");
-}
+function payCardRU(){
+    window.open("https://discord.com/users/1167136063555387559", "_blank");
+
+function payCardEU(){
+    window.open("https://t.me/hikrydexdlc", "_blank");    
+}    
 
 window.onclick = function(e){
     if(e.target.classList.contains("modal")){
